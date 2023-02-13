@@ -41,7 +41,7 @@ let users = [
         "phone": "010-692-6593 x09125",
         "website": "anastasia.net",
         "company": {
-            "name": "    netfix       ",
+            "name": "    netflix       ",
             "catchPhrase": "Proactive didactic contingency",
             "bs": "synergize scalable supply-chains"
         }
@@ -156,7 +156,7 @@ let users = [
         "phone": "210.067.6132",
         "website": "elvis.io",
         "company": {
-            "name": "   Netfix ",
+            "name": "   Netflix ",
             "catchPhrase": "Configurable multimedia task-force",
             "bs": "generate enterprise e-tailers"
         }
@@ -234,7 +234,7 @@ let users = [
   let companies = {
     amazon: [],
     apple: [],
-    netfix: [],
+    netflix: [],
     microsoft: []
   }
   
@@ -243,17 +243,38 @@ let users = [
   
   // 1) SORT BY COMPANY
   // 2) PUT A RANDOM ID FOR EACH PERSON MATH.RANDOM() // 0-50
-//   users.forEach((item) => {
-//     //   let index = item.companies;
-//       let key = item.companies.trim();
-//       if (key === "amazon") {
-//           companies.amazon.push(item)
-//       } else if (key === "netflix") {
-//           companies.netflix.push(item)
-//       } else if(key === "microsoft"){
-//           companies.microsoft.push(item)
-//       }else if(key === "apple"){
-//         companies.apple.push(item)
-//       }
-//   })
-  console.log(item.companies);
+  users.forEach((item) => {
+    let key = item.company.name.trim().toLowerCase();
+    if (key === "apple") {
+        companies.apple.push(item)
+    }
+    else if(key === "microsoft"){
+       companies.microsoft.push(item) 
+    }  else if(key === "amazon"){
+        companies.amazon.push(item)
+    }
+    else if(key === "netflix"){
+        companies.netflix.push(item)
+    }
+     else {
+      console.log('bu xato kod');  
+    }
+
+})
+
+const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  console.log(companies);
+//   console.log(characters);
+  function makeid(length) {
+    let result = '';
+    // const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const charactersLength = characters.length;
+    let counter = 0;
+    while (counter < length) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      counter += 1;
+    }
+    return result;
+}
+
+console.log(makeid(8));
